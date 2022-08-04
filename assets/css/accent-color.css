@@ -1,0 +1,60 @@
+.components-panel__row.edit-post-post-author {
+	margin-bottom: 24px;
+}
+
+.components-wei-accent-color {
+	width: 248px !important;
+	gap: 3px;
+	padding: 2px !important;
+}
+
+.components-wei-accent-color [role="presentation"] {
+	display: none;
+}
+
+.components-wei-accent-color .components-toggle-group-control-option-base {
+	border-radius: 2px;
+}
+
+.components-wei-accent-color .components-toggle-group-control-option-base:after {
+	border: 1px solid transparent;
+	bottom: -1px;
+	border-radius: 3px;
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+	content: "";
+	left: -1px;
+	position: absolute;
+	right: -1px;
+	top: -1px;
+}
+
+.components-wei-accent-color-row {
+	flex-direction: column;
+	justify-content: start;
+	margin-bottom: 12px;
+}
+
+.components-wei-accent-color-row .components-button.is-small {
+	align-self: flex-start;
+	margin-top: 5px;
+}
+
+.is-primary-accent.components-toggle-group-control-option-base {
+	background-color: var(--wp--custom--color--background, var(--wp--preset--color--foreground) );
+	color: var(--wp--preset--color--foreground);
+}
+
+.is-secondary-accent.components-toggle-group-control-option-base {
+	background-color: var(--wp--preset--color--secondary, var(--wp--preset--color--foreground-secondary) );
+	color: var(--wp--preset--color--foreground-secondary);
+}
+
+.is-tertiary-accent.components-toggle-group-control-option-base {
+	background-color: var(--wp--preset--color--tertiary, var(--wp--preset--color--foreground-tertiary) );
+	color: var(--wp--preset--color--foreground-tertiary);
+}
+
+.is-quarternary-accent.components-toggle-group-control-option-base {
+	background-color: var(--wp--preset--color--quarternary, var(--wp--preset--color--foreground-quarternary) );
+	color: var(--wp--preset--color--foreground-quarternary);
+}

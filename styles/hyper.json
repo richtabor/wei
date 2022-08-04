@@ -1,0 +1,104 @@
+{
+	"version": 2,
+	"title": "Hyper",
+	"settings": {
+		"color": {
+			"duotone": [
+				{
+					"colors": [
+						"#35109D",
+						"#63D9F9"
+					],
+					"slug": "primary",
+					"name": "Primary"
+				},
+				{
+					"colors": [
+						"#5D0B98",
+						"#F3D648"
+					],
+					"slug": "secondary",
+					"name": "Secondary"
+				},
+				{
+					"colors": [
+						"#043A51",
+						"#5CC976"
+					],
+					"slug": "tertiary",
+					"name": "Tertiary"
+				},
+				{
+					"colors": [
+						"#782800",
+						"#FBB42A"
+					],
+					"slug": "quarternary",
+					"name": "Quarternary"
+				}
+			],
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#35109D",
+					"name": "Primary"
+				},
+				{
+					"slug": "secondary",
+					"color": "#5D0B98",
+					"name": "Secondary"
+				},
+				{
+					"slug": "tertiary",
+					"color": "#043A51",
+					"name": "Tertiary"
+				},
+				{
+					"slug": "quarternary",
+					"color": "#782800",
+					"name": "Quarternary"
+				},
+				{
+					"slug": "foreground",
+					"color": "#63D9F9",
+					"name": "Foreground"
+				},
+				{
+					"slug": "foreground-secondary",
+					"color": "#F3D648",
+					"name": "Secondary Foreground"
+				},
+				{
+					"slug": "foreground-tertiary",
+					"color": "#5CC976",
+					"name": "Tertiary Foreground"
+				},
+				{
+					"slug": "foreground-quarternary",
+					"color": "#FBB42A",
+					"name": "Quarternary Foreground"
+				}
+			]
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/button": {
+				"border": {
+					"color": "var:preset|color|foreground"
+				},
+				"color": {
+					"background": "var:preset|color|foreground",
+					"text": "var:custom|color|background"
+				}
+			}
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var:preset|color|foreground"
+				}
+			}
+		}
+	}
+}

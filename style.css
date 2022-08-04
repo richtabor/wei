@@ -1,0 +1,471 @@
+/*
+Theme Name: Wei
+Theme URI: https://richtabor.com/wei
+Author: RichTabor.com
+Author URI: https://richtabor.com
+Description: Tell your story and share your thoughts with the world with Wei, a minimal block theme inspired by entirely by simplicity. Embracing clean type, beautifully bold color schemes, and color-matched featured images, Wei puts your words first — in a delightful and creative fashion.
+Requires at least: 6.0
+Tested up to: 6.0
+Requires PHP: 5.6
+Version: 1.0.3
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: Wei
+Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, wide-blocks, block-styles
+
+Wei is distributed under the terms of the GNU GPL.
+*/
+
+/*
+ * Override colors for page-specific theming.
+ */
+.is-primary-accent {
+	--duotone: url(#wp-duotone-primary);
+}
+
+.is-secondary-accent {
+	--wp--preset--color--foreground: var(--wp--preset--color--foreground-secondary);
+}
+
+.is-tertiary-accent {
+	--wp--preset--color--foreground: var(--wp--preset--color--foreground-tertiary);
+}
+
+.is-quarternary-accent {
+	--wp--preset--color--foreground: var(--wp--preset--color--foreground-quarternary);
+}
+
+.single.is-secondary-accent {
+	--wp--custom--color--background: var(--wp--preset--color--secondary, #000);
+	--duotone: url(#wp-duotone-secondary);
+}
+
+.single.is-tertiary-accent {
+	--wp--custom--color--background: var(--wp--preset--color--tertiary, #000);
+	--duotone: url(#wp-duotone-tertiary);
+}
+
+.single.is-quarternary-accent {
+	--wp--custom--color--background: var(--wp--preset--color--quarternary, #000);
+	--duotone: url(#wp-duotone-quarternary);
+}
+
+/*
+ * Ensure spacing and padding are correct theme-wide.
+ */
+
+* {
+	box-sizing: border-box;
+}
+
+/*
+ * Text and navigation link styles.
+ * Necessary until the following issue is resolved in Gutenberg:
+ * https://github.com/WordPress/gutenberg/issues/27075
+ */
+
+a {
+	text-underline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+	color: var(--wp--custom--color--link-hover);
+}
+
+h1 a {
+	text-decoration: none;
+}
+
+h1 a:hover {
+	text-decoration: underline;
+}
+
+/* Figcaption styles */
+
+[class*="wp-block"] figcaption {
+	color: var(--wp--preset--color--foreground);
+	opacity: 0.66;
+}
+
+/*
+ * Heading styles.
+ * Slight modifications to spacing around headings to help
+ * distinguish content sections within the post content only.
+ *
+ * Using !important as the blockGap value overrides it without.
+ */
+
+.wp-block-post-content p+h1:not([style*="margin-top"]),
+.wp-block-post-content p+h2:not([style*="margin-top"]),
+.wp-block-post-content p+h3:not([style*="margin-top"]),
+.wp-block-post-content p+h4:not([style*="margin-top"]),
+.wp-block-post-content span+h1:not([style*="margin-top"]),
+.wp-block-post-content span+h2:not([style*="margin-top"]),
+.wp-block-post-content span+h3:not([style*="margin-top"]),
+.wp-block-post-content span+h4:not([style*="margin-top"]) {
+	margin-top: var(--wp--custom--spacing--medium, 6rem) !important;
+}
+
+/*
+ * Code styles.
+ * Slight tweaks to the code blocks.
+ */
+
+.wp-block-code {
+	border-width: 0;
+	overflow: hidden;
+	overflow-x: auto;
+	white-space: pre;
+}
+
+p code {
+	background: var(--wp--preset--color--background-alt);
+	border-radius: 4px;
+	border: 1px solid rgba(128, 128, 128, 0.25);
+	display: inline-block;
+	font-size: 72.5%;
+	padding: 0.05rem 0.5rem;
+	position: relative;
+	top: -2px;
+	color: var(--wp--custom--color--code);
+}
+
+p code a {
+	color: var(--wp--custom--color--code);
+	text-decoration-thickness: 1px !important;
+}
+
+
+/*
+ * Alignment styles.
+ *
+ * Relevant issues:
+ * https://github.com/WordPress/gutenberg/issues/35607
+ * https://github.com/WordPress/gutenberg/issues/35884
+ */
+
+.wp-site-blocks,
+body>.is-root-container,
+.edit-post-visual-editor__post-title-wrapper,
+.wp-block-group.alignfull,
+.wp-block-group.has-background,
+.wp-block-cover.alignfull,
+.is-root-container .wp-block[data-align="full"]>.wp-block-group,
+.is-root-container .wp-block[data-align="full"]>.wp-block-cover {
+	padding-left: var(--wp--custom--spacing--outer);
+	padding-right: var(--wp--custom--spacing--outer);
+}
+
+.wp-site-blocks .alignfull,
+.wp-site-blocks>.wp-block-group.has-background,
+.wp-site-blocks>.wp-block-cover,
+.wp-site-blocks>.wp-block-template-part>.wp-block-group.has-background,
+.wp-site-blocks>.wp-block-template-part>.wp-block-cover,
+body>.is-root-container>.wp-block-cover,
+body>.is-root-container>.wp-block-template-part>.wp-block-group.has-background,
+body>.is-root-container>.wp-block-template-part>.wp-block-cover,
+.is-root-container .wp-block[data-align="full"] {
+	margin-left: calc(-1 * var(--wp--custom--spacing--outer)) !important;
+	margin-right: calc(-1 * var(--wp--custom--spacing--outer)) !important;
+	width: unset;
+}
+
+/* Blocks inside columns don't have negative margins. */
+.wp-site-blocks .wp-block-columns .wp-block-column .alignfull,
+.is-root-container .wp-block-columns .wp-block-column .wp-block[data-align="full"],
+/* We also want to avoid stacking negative margins. */
+.wp-site-blocks .alignfull:not(.wp-block-group) .alignfull,
+.is-root-container .wp-block[data-align="full"]>*:not(.wp-block-group) .wp-block[data-align="full"] {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	width: inherit;
+}
+
+/*
+ * Search input styles.
+ * A bit hacky but core does not support styling
+ * inputs via theme.json or block styles.
+ */
+
+.wp-block-search__input {
+	border: 0;
+	background: transparent;
+	color: currentcolor;
+	z-index: 3;
+	position: relative;
+	padding: 12px;
+	line-height: 1;
+}
+
+.wp-block-search__input::placeholder {
+	color: var(--wp--preset--color--foreground);
+}
+
+.wp-block-search__input::-ms-input-placeholder {
+	color: var(--wp--preset--color--foreground);
+}
+
+.wp-block-search__input:-ms-input-placeholder {
+	color: var(--wp--preset--color--foreground);
+}
+
+/* Remove hard-coded border. */
+.wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper {
+	border: 0;
+}
+
+.wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper .wp-block-search__input {
+	padding: 12px;
+}
+
+.wp-block-search__button {
+	cursor: pointer;
+}
+
+/*
+ * Search and File Block button styles.
+ * Necessary until the following issues are resolved in Gutenberg:
+ * https://github.com/WordPress/gutenberg/issues/36444
+ * https://github.com/WordPress/gutenberg/issues/27760
+ */
+
+.wp-block-search__button,
+.wp-block-file .wp-block-file__button {
+	background-color: transparent;
+	border-radius: 4px;
+	border: none;
+	color: var(--wp--preset--color--foreground);
+	font-size: var(--wp--preset--font-size--medium);
+	padding: calc(.667em + 2px) calc(1.333em + 2px);
+	margin-left: 0;
+}
+
+/*
+ * Button hover styles.
+ * Necessary until the following issue is resolved in Gutenberg:
+ * https://github.com/WordPress/gutenberg/issues/27075
+ */
+
+
+.wp-block-file .wp-block-file__button:hover,
+.wp-block-button__link:hover {
+	color: var(--wp--custom--color--background);
+}
+
+/*
+ * Remove the auto-padding added to group blocks
+ * with background colors applied.
+ */
+
+.wp-block-group:where(.has-background) {
+	padding: 0;
+}
+
+/*
+ * Responsive menu container padding.
+ * This ensures the responsive container inherits the same
+ * spacing defined above. This behavior may be built into
+ * the Block Editor in the future.
+ */
+
+.wp-block-navigation a:hover {
+	color: var(--wp--custom--color--link-hover);
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open {
+	padding-top: var(--wp--custom--spacing--outer);
+	padding-bottom: var(--wp--custom--spacing--large, 8rem);
+	padding-right: var(--wp--custom--spacing--outer);
+	padding-left: var(--wp--custom--spacing--outer);
+}
+
+.wp-block-navigation__responsive-container-content  a:hover {
+	color: var(--wp--preset--color--white);
+}
+
+/*
+ * Image block, within post content.
+ * Add additional margin to the image block, so that
+ * it displays with the same spacing as paragraphs do.
+ */
+
+.wp-block-post-content p+.wp-block-image {
+	margin-top: calc(var(--wp--style--block-gap) * 1.5) !important;
+	margin-bottom: calc(var(--wp--style--block-gap) * 1.5) !important;
+}
+
+/*
+ * Image block, when alignfull within post content.
+ */
+
+.wp-block-post-content p+.wp-block-image.alignfull {
+	margin-top: calc(1.25 * var(--wp--custom--spacing--medium, 8rem)) !important;
+	margin-bottom: calc(1.25 * var(--wp--custom--spacing--medium, 8rem)) !important;
+}
+
+/*
+ * Post author styles.
+ * Minor tweaks to customize the appearance of the
+ * core/post-author block.
+ */
+
+.is-style-avatar-only .wp-block-post-author__content {
+	display: none;
+}
+
+.wp-block-post-author__content {
+	align-self: center;
+}
+
+.wp-block-post-author__avatar img {
+	border-radius: 100%;
+	vertical-align: bottom;
+}
+
+/*
+ * Post excerpt styles.
+ * Remove excess margin from the block.
+ */
+
+.wp-block-post-excerpt__excerpt {
+	margin-top: initial;
+	margin-bottom: initial;
+}
+
+/*
+ * Post block.
+ */
+
+.wp-block-post {
+	background-color: var(--wp--custom--color--background);
+	margin-top: 0 !important;
+}
+
+/*
+ * Cover block.
+ */
+
+.wp-block-cover.featured-image .wp-block-cover__inner-container {
+	color: var(--wp--preset--color--foreground) !important;
+}
+
+.wp-block-cover.featured-image .wp-block-cover__background {
+	background: linear-gradient(180deg, var(--wp--custom--color--background) 0%, rgba(0, 0, 0, 0) 25%, var(--wp--custom--color--background) 75%) !important;
+	opacity: 1;
+}
+
+.wp-block-cover.featured-image[class*="004d98-dbffff"]>.wp-block-cover__image-background {
+	filter: var(--duotone) !important;
+	opacity: 0.33;
+}
+
+.wp-block-cover.featured-image .wp-block-cover__inner-container {
+	width: 100% !important;
+}
+
+.wp-block-cover .block-editor-block-list__layout {
+	width: auto;
+}
+
+/*
+ * Social link styles.
+ * Use currentColor for social links to better support style variants.
+ * Remove the social link transform transition.
+ */
+
+.wp-block-social-links.is-style-logos-only>.wp-social-link {
+	color: currentColor;
+}
+
+.wp-block-social-link {
+	transition: none;
+	transform: none !important;
+}
+
+/*
+ * Query Pagination styles.
+ * Remove margin that throws this off alignment.
+ */
+
+.wp-block-query-pagination>.wp-block-query-pagination-previous {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+/*
+ * Registered block styles.
+ * Applied to easily add accent colored borders
+ * to media (core/image, core/video an ideabox/image-comparison blocks).
+ */
+
+.is-style-transparent .wp-block-button__link {
+	border: none;
+	background-color: transparent;
+	color: var(--wp--preset--color--foreground);
+}
+
+.is-style-buttons .page-numbers {
+	display: inline-flex;
+	font-size: var(--wp--preset--font-size--small);
+	height: 36px;
+	width: 36px;
+	align-items: center;
+	justify-content: center;
+}
+
+.is-style-buttons.wp-block-post-terms {
+	display: flex;
+	gap: 0.3rem;
+	flex-wrap: wrap;
+}
+
+.is-style-buttons.wp-block-post-terms>a {
+	display: inline-block;
+	position: relative
+}
+
+.is-style-buttons.wp-block-post-terms .wp-block-post-terms__separator {
+	display: none;
+}
+
+.is-style-buttons .page-numbers,
+.is-style-buttons .wp-block-query-pagination-next,
+.is-style-buttons .wp-block-query-pagination-previous,
+.is-style-buttons.wp-block-post-terms>a {
+	color: var(--wp--preset--color--foreground);
+	border: 1px solid var(--wp--preset--color--foreground);
+	padding: 0.5rem 0.85rem;
+	border-radius: 10rem;
+	text-decoration: none;
+	position: relative;
+	line-height: var(--wp--custom--typography--line-height--normal);
+}
+
+.is-style-buttons .page-numbers:hover,
+.is-style-buttons .wp-block-query-pagination-next:hover,
+.is-style-buttons .wp-block-query-pagination-previous:hover,
+.is-style-buttons.wp-block-post-terms>a:hover {
+	color: var(--wp--custom--color--link-hover);
+	opacity: 1;
+}
+
+/*
+ * Footer.
+ */
+
+footer {
+	margin-top: 0 !important;
+}
+
+/*
+ * Utility styles.
+ * A couple utilities that are used throughout patterns and parts
+ * where core does not support these functionalities.
+ */
+
+.mt-0 {
+	margin-top: 0 !important;
+}

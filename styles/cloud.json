@@ -1,0 +1,109 @@
+{
+	"version": 2,
+	"title": "Cloud",
+	"settings": {
+		"color": {
+			"duotone": [
+				{
+					"colors": [
+						"#DBFFFF",
+						"#004D98"
+					],
+					"slug": "primary",
+					"name": "Primary"
+				},
+				{
+					"colors": [
+						"#e7e7e9",
+						"#006D3F"
+					],
+					"slug": "secondary",
+					"name": "Secondary"
+				},
+				{
+					"colors": [
+						"#FFFFD7",
+						"#CA9415"
+					],
+					"slug": "tertiary",
+					"name": "Tertiary"
+				},
+				{
+					"colors": [
+						"#FFF2FF",
+						"#6B266B"
+					],
+					"slug": "quarternary",
+					"name": "Quarternary"
+				}
+			],
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#DBFFFF",
+					"name": "Primary"
+				},
+				{
+					"slug": "secondary",
+					"color": "#dcffff",
+					"name": "Secondary"
+				},
+				{
+					"slug": "tertiary",
+					"color": "#FFFFD7",
+					"name": "Tertiary"
+				},
+				{
+					"slug": "quarternary",
+					"color": "#FFF2FF",
+					"name": "Quarternary"
+				},
+				{
+					"slug": "foreground",
+					"color": "#004D98",
+					"name": "Foreground"
+				},
+				{
+					"slug": "foreground-secondary",
+					"color": "#006D3F",
+					"name": "Secondary Foreground"
+				},
+				{
+					"slug": "foreground-tertiary",
+					"color": "#986d0b",
+					"name": "Tertiary Foreground"
+				},
+				{
+					"slug": "foreground-quarternary",
+					"color": "#6B266B",
+					"name": "Quarternary Foreground"
+				}
+			]
+		},
+		"custom": {
+			"color": {
+				"link-hover": "var(--wp--preset--color--black)"
+			}
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/button": {
+				"border": {
+					"color": "var:preset|color|foreground"
+				},
+				"color": {
+					"background": "var:preset|color|foreground",
+					"text": "var:custom|color|background"
+				}
+			}
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var:preset|color|foreground"
+				}
+			}
+		}
+	}
+}

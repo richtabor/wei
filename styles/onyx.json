@@ -1,0 +1,89 @@
+{
+	"version": 2,
+	"title": "Onyx",
+	"settings": {
+		"color": {
+			"duotone": [
+				{
+					"colors": [
+						"#66A9DC",
+						"#060606"
+					],
+					"slug": "primary",
+					"name": "Primary"
+				},
+				{
+					"colors": [
+						"#88E8A1",
+						"#060606"
+					],
+					"slug": "secondary",
+					"name": "Secondary"
+				},
+				{
+					"colors": [
+						"#F8D651",
+						"#060606"
+					],
+					"slug": "tertiary",
+					"name": "Tertiary"
+				},
+				{
+					"colors": [
+						"#E97AF7",
+						"#060606"
+					],
+					"slug": "quarternary",
+					"name": "Quarternary"
+				}
+			],
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#060606",
+					"name": "Primary"
+				},
+				{
+					"slug": "foreground",
+					"color": "#66A9DC",
+					"name": "Foreground"
+				},
+				{
+					"slug": "foreground-secondary",
+					"color": "#88E8A1",
+					"name": "Secondary Foreground"
+				},
+				{
+					"slug": "foreground-tertiary",
+					"color": "#F8D651",
+					"name": "Tertiary Foreground"
+				},
+				{
+					"slug": "foreground-quarternary",
+					"color": "#E97AF7",
+					"name": "Quarternary Foreground"
+				}
+			]
+		}
+	},
+	"styles": {
+		"blocks": {
+			"core/button": {
+				"border": {
+					"color": "var:preset|color|foreground"
+				},
+				"color": {
+					"background": "var:preset|color|foreground",
+					"text": "var:custom|color|background"
+				}
+			}
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var:preset|color|foreground"
+				}
+			}
+		}
+	}
+}
